@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"strings"
 )
-
 func main() {
 	fmt.Println("WELCOME TO OUR PIZZA APP")
 	fmt.Println("Please rate our pizza between 1 and 5")
