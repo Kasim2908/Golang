@@ -4,18 +4,24 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
-	welcome := "Welcome to user input"
-	fmt.Println(welcome)
+	fmt.Println("WELCOME TO OUR PIZZA APP")
+	fmt.Println("Please rate our pizza between 1 and 5")
 
 	reader := bufio.NewReader(os.Stdin)
-	// comma ok || err ok
-	fmt.Println("Enter the rating for our pizza: ")
-	// cmma ok || err ok
-	input, _ := reader.ReadString('\n') // try or catch part
-	// comma ok || err ok
+
+	input, _ := reader.ReaderString('\n')
+
 	fmt.Println("Thanks for rating, ", input)
-	fmt.Printf("Type of this rating is %T", input)
+
+	numRating, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Added 1 to your rating: ", numRating+1)
+	}
 }
