@@ -1,26 +1,17 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
+	"time"
 )
+
 func main() {
-	fmt.Println("WELCOME TO OUR PIZZA APP")
-	fmt.Println("Please rate our pizza between 1 and 5")
+	fmt.Println("welcome to time study of golang")
+	presentTime := time.Now()
+	fmt.Println(presentTime)
 
-	reader := bufio.NewReader(os.Stdin)
-
-	input, _ := reader.ReaderString('\n')
-
-	fmt.Println("Thanks for rating, ", input)
-
-	numRating, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("Added 1 to your rating: ", numRating+1)
-	}
+	fmt.Println(presentTime.Format("15-03-2025 15:04:05 Monday"))
+	createdDate := time.Date(2020, time.August, 10, 23, 23, 0, 0, time.UTC)
+	fmt.Println(createdDate)
+	fmt.Println(createdDate.Format("01-02-2006 Monday"))
 }
